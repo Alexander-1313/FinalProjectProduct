@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Discount</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/product-update-discount}" th:object="${productForm}" method="post">
+    <table>
+        <tr>
+            <td>Discount</td>
+            <td><input type="text" th:field="*{discount}" id="Discount" placeholder="Discount"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><select id="Category" th:field="*{category}">
+                <option th:each="type : ${categories}"
+                        th:value="${type}"
+                        th:text="#{${type}}">Category</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update Products"></td>
+        </tr>
+        <tr>
+            <td><a href="/products">products</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

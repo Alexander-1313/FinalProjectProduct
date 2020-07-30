@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>product-create</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/product-create}" th:object="${product}" method="post">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}" placeholder="name"></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" th:field="*{price}" placeholder="Price"></td>
+            <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><select id="Category" th:field="*{category}">
+                <option th:each="type : ${categories}"
+                        th:value="${type}"
+                        th:text="#{${type}}">Category</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create Product"></td>
+        </tr>
+        <tr>
+            <td><a href="/products">products</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
