@@ -19,12 +19,12 @@
         </tr>
         <tr>
             <td>Price</td>
-            <td><input type="text" th:field="*{price}" id="Price" placeholder="Price"></td>
+            <td><input type="text" th:field="*{price}" id="Price" placeholder="Price" pattern="\d+(\.\d{2})?"></td>
             <td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
         </tr>
         <tr>
             <td>Discount</td>
-            <td><input type="text" th:field="*{discount}" id="Discount" placeholder="Discount"></td>
+            <td><input type="text" th:field="*{discount}" id="Discount" placeholder="Discount" pattern="\d+(\.\d{2})?"></td>
             <td th:if="${#fields.hasErrors('discount')}" th:errors="*{discount}">Discount Error</td>
         </tr>
         <tr>
