@@ -4,7 +4,7 @@ import by.rybak.FinalProjectProduct.model.Category;
 import by.rybak.FinalProjectProduct.model.Product;
 import by.rybak.FinalProjectProduct.model.ProductForm;
 import by.rybak.FinalProjectProduct.service.ProductService;
-import lombok.NoArgsConstructor;
+import by.rybak.FinalProjectProduct.service.validation.ValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -23,10 +22,13 @@ public class ProductController {
 
     private final ProductService service;
     private final Category[] categories = Category.values();
+    private final ValidationService validationService;
+    private final String redirectToProducts = "redirect:/products";
 
     @Autowired
-    public ProductController(ProductService service) {
+    public ProductController(ProductService service, ValidationService validationService) {
         this.service = service;
+        this.validationService = validationService;
     }
 
     @GetMapping("/")
@@ -55,13 +57,13 @@ public class ProductController {
             return "product-create";
         }
         service.saveProduct(product);
-        return "redirect:/products";
+        return redirectToProducts;
     }
 
     @GetMapping("/product-delete/{id}")
     public String deleteProduct(@PathVariable("id") Long id){
         service.deleteProduct(id);
-        return "redirect:/products";
+        return redirectToProducts;
     }
 
     @GetMapping("/product-update/{id}")
@@ -79,7 +81,7 @@ public class ProductController {
             return "product-update";
         }
         service.saveProduct(product);
-        return "redirect:/products";
+        return redirectToProducts;
     }
 
     @GetMapping("/product-update-discount")
@@ -99,6 +101,6 @@ public class ProductController {
 
         service.addDiscountByCategory(discount, category);
 
-        return "redirect:/products";
+        return redirectToProducts;
     }
 }

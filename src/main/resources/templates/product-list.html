@@ -9,14 +9,14 @@
     <h2 th:case="null">No products found!</h2>
     <div th:case="*">
         <h2>Products</h2>
-        <table>
+        <table border="1px">
             <thead>
             <tr>
                 <th>id</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th>Discount</th>
+                <th>Discount(%)</th>
             </tr>
             </thead>
             <tbody>

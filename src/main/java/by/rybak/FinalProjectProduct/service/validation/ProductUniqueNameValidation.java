@@ -20,5 +20,6 @@ public class ProductUniqueNameValidation implements ProductValidation{
                 throw new ProductException("Product name must be unique");
             }
         }
+        session.close();
     }
 }

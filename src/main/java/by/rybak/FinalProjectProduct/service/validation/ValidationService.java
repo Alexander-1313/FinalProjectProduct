@@ -2,10 +2,12 @@ package by.rybak.FinalProjectProduct.service.validation;
 
 import by.rybak.FinalProjectProduct.exception.ProductException;
 import by.rybak.FinalProjectProduct.model.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class ValidationService {
     private Set<ProductValidation> validation = new HashSet<>();
 

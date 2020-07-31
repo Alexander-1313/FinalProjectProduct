@@ -10,6 +10,7 @@ public enum Category {
     VEGETABLES,
     FRUITS,
     DRINKS,
-    MILK;
+    MILK,
+    CEREALS;
 
 }

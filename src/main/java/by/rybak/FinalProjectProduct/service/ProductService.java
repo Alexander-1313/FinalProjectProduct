@@ -14,11 +14,7 @@ import java.util.List;
 @Service
 public class ProductService implements IProductService {
 
-    private ValidationService validationService = new ValidationService();
-    private final String getAll = "select * from products;";
-
-    final
-    ProductRepository repository;
+    final ProductRepository repository;
 
     public ProductService(ProductRepository repository) {
         this.repository = repository;

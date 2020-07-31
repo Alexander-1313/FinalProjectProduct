@@ -17,7 +17,7 @@
             <td><select id="Category" th:field="*{category}">
                 <option th:each="type : ${categories}"
                         th:value="${type}"
-                        th:text="#{${type}}">Category</option>
+                        th:text="${type}">Category</option>
             </select>
             </td>
         </tr>

@@ -5,9 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 @Data
@@ -22,12 +20,13 @@ public class Product {
     private long id;
 
     @Column(name = "name")
-    @Size(min = 3, max = 25, message = "product name size should be between 3 and 25!")
+    @Size(min = 3, max = 25, message = "длина имени продукта должна быть между 3 и 25")
     @NotNull
     private String name;
 
     @NotNull
     @Column(name = "price")
+    @Positive
     private BigDecimal price;
 
     @Column(name = "category")
@@ -37,6 +36,7 @@ public class Product {
 
     @Column(name = "discount")
     @Max(99)
+    @Positive
     private BigDecimal discount;
 
     @Column(name = "description")
